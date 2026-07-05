@@ -1,0 +1,152 @@
+# MarketStock Manager
+
+**MarketStock Manager** je desktop aplikacija za vođenje male prodavnice ili supermarketa. Projekat je napravljen kao portfolio aplikacija za C# programera: ima lokalnu bazu, CRUD operacije, prodaju, evidenciju zaliha, dashboard i izveštaje.
+
+> Ovo nije web frontend i nije API projekat. Ovo je Windows desktop aplikacija napravljena u C# WPF tehnologiji.
+
+## Tehnologije
+
+- C#
+- .NET 8
+- WPF
+- SQLite
+- Microsoft.Data.Sqlite
+- Visual Studio
+
+## Glavne funkcionalnosti
+
+- Dashboard sa ključnim metrikama
+- Upravljanje proizvodima
+- Kategorije proizvoda
+- Pretraga proizvoda po nazivu, SKU i barkodu
+- Filter po kategoriji
+- Pregled proizvoda sa niskim zalihama
+- Evidencija ulaza robe
+- Evidencija otpisa robe
+- Korekcija zaliha
+- Prodaja proizvoda kroz račun
+- Automatsko umanjenje zaliha nakon prodaje
+- Istorija promena zaliha
+- Pregled poslednjih računa
+- Izveštaj najprodavanijih proizvoda
+- Lokalna SQLite baza koja se automatski kreira
+- Demo podaci pri prvom pokretanju
+
+## Zašto je dobar za portfolio
+
+Ovaj projekat pokazuje da znaš da napraviš realnu poslovnu aplikaciju, a ne samo običan CRUD primer. U aplikaciji postoje realni tokovi rada:
+
+- proizvodi imaju SKU, barkod, cenu i minimalnu zalihu
+- prodaja proverava da li ima dovoljno robe na stanju
+- svaka promena zaliha se čuva u istoriji
+- dashboard odmah pokazuje stanje poslovanja
+- baza se kreira automatski i aplikacija može da se koristi odmah
+
+## Struktura projekta
+
+```text
+MarketStockManager/
+├── MarketStockManager.sln
+├── README.md
+├── LICENSE
+├── .gitignore
+├── docs/
+│   └── database-schema.sql
+└── src/
+    └── MarketStockManager/
+        ├── MarketStockManager.csproj
+        ├── App.xaml
+        ├── App.xaml.cs
+        ├── MainWindow.xaml
+        ├── MainWindow.xaml.cs
+        ├── Data/
+        │   └── DatabaseService.cs
+        └── Models/
+            ├── Category.cs
+            ├── Product.cs
+            ├── StockMovement.cs
+            ├── Sale.cs
+            ├── SaleItem.cs
+            ├── SaleCartItem.cs
+            ├── DashboardStats.cs
+            └── ReportRow.cs
+```
+
+## Pokretanje projekta
+
+### Opcija 1: Visual Studio
+
+1. Otvori `MarketStockManager.sln`
+2. Sačekaj da Visual Studio uradi restore NuGet paketa
+3. Pokreni projekat na `Start` ili `F5`
+
+### Opcija 2: Terminal
+
+```bash
+dotnet restore
+dotnet run
+```
+
+Napomena: pošto je WPF Windows tehnologija, projekat se pokreće na Windows računaru.
+
+## Baza podataka
+
+Aplikacija automatski kreira SQLite bazu `marketstock.db` pri prvom pokretanju. Baza se nalazi u output folderu aplikacije, na primer:
+
+```text
+root folder/bin/Debug/net8.0-windows/marketstock.db
+```
+
+Ako želiš da resetuješ demo podatke, ugasi aplikaciju i obriši `marketstock.db`. Pri sledećem pokretanju aplikacija će ponovo napraviti bazu i ubaciti demo podatke.
+
+## Demo podaci
+
+Pri prvom pokretanju automatski se kreiraju kategorije:
+
+- Pića
+- Mlečni proizvodi
+- Pekara
+- Slatkiši
+- Hemija
+
+Dodati su i primeri proizvoda kao što su mineralna voda, mleko, hleb, čokolada i deterdžent.
+
+## GitHub opis
+
+Možeš koristiti ovaj opis za GitHub repository:
+
+```text
+Desktop inventory and sales management application for a small supermarket, built with C# WPF and SQLite. Includes product management, stock movements, sales, dashboard metrics and reports.
+```
+
+## Moguća proširenja
+
+- Login forma za radnike i admina
+- Štampanje računa u PDF
+- Export izveštaja u Excel
+- Skener barkoda
+- Dobavljači i nabavke
+- Role korisnika
+- Evidencija smena i kasa
+- Backup baze podataka
+
+## GitHub komande
+
+```bash
+git init
+git add .
+git commit -m "Initial commit - MarketStock Manager"
+git branch -M main
+git remote add origin https://github.com/USERNAME/marketstock-manager.git
+git push -u origin main
+```
+
+## Licenca
+
+MIT License
+
+
+## GitHub web upload
+
+This flat version is prepared for manual upload through the GitHub website.
+Upload all files from this folder directly to the repository root. There are no `src` or `docs` folders in this version.
